@@ -154,9 +154,9 @@ time_chunk /= 2
 
 DISPLAY_ONSCREEN_TIMER ped_time_limit
 
-IF flag_player_on_mission = 0
+GOTO ambulance_fool_compiler // SCFIX: remove flag_player_on_mission = 0 check
 	ADD_BLIP_FOR_COORD hospital_x hospital_y hospital_z hospital_blip
-ENDIF
+ambulance_fool_compiler: // SCFIX: remove flag_player_on_mission = 0 check
 
 GOTO ambulance_loop
 

@@ -847,10 +847,10 @@ WHILE NOT IS_CHAR_IN_CAR maria frankies_limo
 
 ENDWHILE
 
-IF flag_player_on_mission = 0
+GOTO frank1_fool_compiler // SCFIX: remove flag_player_on_mission = 0
 	ADD_BLIP_FOR_CAR frankies_limo fm1_blip
 	ADD_BLIP_FOR_CHAR maria maria_blip
-ENDIF
+frank1_fool_compiler: // SCFIX: remove flag_player_on_mission = 0
 
 SET_PLAYER_CONTROL player ON
 SET_EVERYONE_IGNORE_PLAYER player FALSE

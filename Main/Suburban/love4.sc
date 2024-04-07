@@ -356,12 +356,12 @@ SET_CHAR_THREAT_SEARCH goon_in_hangar2 THREAT_FAST_CAR
 SET_CHAR_THREAT_SEARCH goon_in_hangar3 THREAT_FAST_CAR
 SET_CHAR_THREAT_SEARCH goon_in_hangar4 THREAT_FAST_CAR
 
-IF flag_player_on_mission = 0
+GOTO love4_fool_compiler // SCFIX: remove flag_player_on_mission = 0
 	ADD_BLIP_FOR_CHAR goon_in_hangar1 goon_in_hangar1_blip
 	ADD_BLIP_FOR_CHAR goon_in_hangar2 goon_in_hangar2_blip
 	ADD_BLIP_FOR_CHAR goon_in_hangar3 goon_in_hangar3_blip
 	ADD_BLIP_FOR_CHAR goon_in_hangar4 goon_in_hangar4_blip
-ENDIF
+love4_fool_compiler: // SCFIX: remove flag_player_on_mission = 0
 
 WHILE NOT LOCATE_PLAYER_ANY_MEANS_2D player -1281.3341 -561.8243 90.0 90.0 0// CESSNA
 	
