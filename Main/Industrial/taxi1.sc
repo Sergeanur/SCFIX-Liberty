@@ -46,6 +46,12 @@ SCRIPT_NAME	TAXI
 
 SET_DEATHARREST_STATE OFF // GSW - does deatharrest have to be switched off?  YES! well maybe...
 
+// SCFIX: START
+IF flag_asuka_mission1_passed = 1
+	SET_GANG_WEAPONS GANG_MAFIA WEAPONTYPE_PISTOL WEAPONTYPE_UZI //The Mafia
+ENDIF
+// SCFIX: END
+
 flag_player_on_mission = 1
 taxi_countdown_already_started = 0
 taxi_countdown = 0
@@ -1149,6 +1155,11 @@ RETURN
 // mission cleanup
 
 mission_cleanup_taxi1:
+// SCFIX: START
+IF flag_asuka_mission1_passed = 1
+	SET_GANG_WEAPONS GANG_MAFIA WEAPONTYPE_PISTOL WEAPONTYPE_SHOTGUN //The Mafia
+ENDIF
+// SCFIX: END
 CLEAR_ONSCREEN_TIMER taxi_countdown
 CLEAR_ONSCREEN_COUNTER taxi_passed_this_shot //TEST STUFF!!!!!!!!
 IF NOT IS_CAR_DEAD taxi_car1

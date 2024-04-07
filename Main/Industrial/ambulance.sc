@@ -53,6 +53,12 @@ flag_player_on_ambulance_mission = 1
 
 WAIT 0
 
+// SCFIX: START
+IF flag_asuka_mission1_passed = 1
+	SET_GANG_WEAPONS GANG_MAFIA WEAPONTYPE_PISTOL WEAPONTYPE_UZI //The Mafia
+ENDIF
+// SCFIX: END
+
 SCRIPT_NAME ambulan
 
 ped_time_limit 			= 0
@@ -1895,7 +1901,11 @@ GOTO ambulance_loop
 
 
 ambulance_failed:
-
+// SCFIX: START
+IF flag_asuka_mission1_passed = 1
+	SET_GANG_WEAPONS GANG_MAFIA WEAPONTYPE_PISTOL WEAPONTYPE_SHOTGUN //The Mafia
+ENDIF
+// SCFIX: END
 CLEAR_ONSCREEN_TIMER ped_time_limit
 CLEAR_HELP
 PRINT_BIG A_FAIL1 5000 5
