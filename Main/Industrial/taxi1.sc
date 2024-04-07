@@ -149,6 +149,15 @@ ENDIF
 IF taxi_ped1 = -1
 	WAIT 0
 	GOTO Start_taxi_mission		//	random_ped_grabber
+// SCFIX: START
+ELSE
+	IF IS_CHAR_MODEL taxi_ped1 PED_TAXI_DRIVER
+		MARK_CHAR_AS_NO_LONGER_NEEDED taxi_ped1
+		taxi_ped1 = -1
+		WAIT 0
+		GOTO Start_taxi_mission		//	random_ped_grabber
+	ENDIF
+// SCFIX: END
 ENDIF
 
 											   
