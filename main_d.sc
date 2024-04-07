@@ -6417,6 +6417,12 @@ diablo_blip_loop_inner:
 	IF IS_PLAYER_PLAYING Player
 		IF IS_COLLISION_IN_MEMORY LEVEL_INDUSTRIAL
 
+			// SCFIX: START
+			IF flag_diablo_mission4_passed = 1
+				TERMINATE_THIS_SCRIPT
+			ENDIF
+			// SCFIX: END
+
 			IF blip_diablo_created_before = 0
 				REMOVE_BLIP diablo_contact_blip
 				ADD_SPRITE_BLIP_FOR_CONTACT_POINT 938.4 -230.5 -100.0 RADAR_SPRITE_EL diablo_contact_blip
