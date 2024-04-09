@@ -2816,9 +2816,7 @@ ENDIF
 
 MISSION_HAS_FINISHED	//	marks models as no longer needed so that they can be deleted before the player is teleported
 
-IF NOT HAS_DEATHARREST_BEEN_EXECUTED // SCFIX
-	SET_PLAYER_CONTROL player OFF // SCFIX
-ENDIF // SCFIX
+SET_PLAYER_CONTROL player OFF // SCFIX
 
 SET_DEATHARREST_STATE OFF // SCFIX: this is mostly paranoid because of WAIT
 
