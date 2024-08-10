@@ -432,7 +432,7 @@ IF random_yd1 > 43690
 ENDIF
 */
 
-GENERATE_RANDOM_INT 0 3 flag_random_yd1
+GENERATE_RANDOM_INT_IN_RANGE 0 3 flag_random_yd1
 
 // SCFIX: END
 
