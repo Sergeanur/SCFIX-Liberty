@@ -37,10 +37,13 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Bridge model swap by the intro cutscene made seamless
 - LCPD wall model swap in "Kanbu Bust-out" made seamless
 - Panlantic fence model swap in "Grand Theft Aero" made seamless
+- Fixed Quadruple Insane Stunt
+- Reimplement "Bling-Bling Scramble" random selection of a checkpoint pattern to fix the third pattern being unreachable
 - Implemented fixes for potential SSU in the intro cutscene script
 - Removed duplicate models loads during the jailbreak cutscene
 - Fixed some models not being marked as no longer needed after being loaded by the jailbreak cutscene
 - Fixed On Mission flag (flag_player_on_mission) sets to prevent any abuse of this flag
+- Removed On Mission flag checks in some mission that were meant to bypass compiler errors
 
 ## Save files compatibility
 
