@@ -1,8 +1,10 @@
 # SCFIX-Liberty
 
-SCFIX-Liberty aims to provide bugfixes to the original scripts. Based off of UndefinifiedLiberty.
-Currently in beta status.
+SCFIX-Liberty aims to provide bugfixes to the original scripts. Based off of [UndefinifiedLiberty](https://github.com/Sergeanur/UndefinifiedLiberty).
+
 All changes to the scripts were marked with `SCFIX` comment.
+
+Currently in beta status.
 
 ## Download SCM
 
