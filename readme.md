@@ -39,6 +39,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Panlantic fence model swap in "Grand Theft Aero" made seamless
 - Fixed Quadruple Insane Stunt
 - Reimplement "Bling-Bling Scramble" random selection of a checkpoint pattern to fix the third pattern being unreachable
+- Reimplement "Plaster Blaster" random selection of an ambulance path to fix the third path being unreachable
 - Implemented fixes for potential SSU in the intro cutscene script
 - Removed duplicate models loads during the jailbreak cutscene
 - Fixed some models not being marked as no longer needed after being loaded by the jailbreak cutscene
