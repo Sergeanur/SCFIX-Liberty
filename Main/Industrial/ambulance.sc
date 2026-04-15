@@ -942,8 +942,9 @@ IF injured_ped_1_flag > 0
 
 	IF injured_ped_1_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_1	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_1 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_1
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_1 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_1_flag = 0
 		ENDIF
@@ -1009,8 +1010,9 @@ IF injured_ped_2_flag > 0
 
 	IF injured_ped_2_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_2	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_2 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_2
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_2 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_2_flag = 0
 		ENDIF
@@ -1076,8 +1078,9 @@ IF injured_ped_3_flag > 0
 
 	IF injured_ped_3_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_3	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_3 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_3
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_3 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_3_flag = 0
 		ENDIF
@@ -1143,8 +1146,9 @@ IF injured_ped_4_flag > 0
 
 	IF injured_ped_4_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_4	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_4 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_4
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_4 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_4_flag = 0
 		ENDIF
@@ -1210,8 +1214,9 @@ IF injured_ped_5_flag > 0
 
 	IF injured_ped_5_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_5	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_5 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_5
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_5 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_5_flag = 0
 		ENDIF
@@ -1277,8 +1282,9 @@ IF injured_ped_6_flag > 0
 
 	IF injured_ped_6_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_6	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_6 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_6
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_6 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_6_flag = 0
 		ENDIF
@@ -1344,8 +1350,9 @@ IF injured_ped_7_flag > 0
 
 	IF injured_ped_7_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_7	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_7 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_7
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_7 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_7_flag = 0
 		ENDIF
@@ -1411,8 +1418,9 @@ IF injured_ped_8_flag > 0
 
 	IF injured_ped_8_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_8	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_8 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_8
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_8 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_8_flag = 0
 		ENDIF
@@ -1478,8 +1486,9 @@ IF injured_ped_9_flag > 0
 
 	IF injured_ped_9_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_9	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_9 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_9
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_9 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_9_flag = 0
 		ENDIF
@@ -1545,8 +1554,9 @@ IF injured_ped_10_flag > 0
 
 	IF injured_ped_10_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_10	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_10 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_10
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_10 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_10_flag = 0
 		ENDIF
@@ -1612,8 +1622,9 @@ IF injured_ped_11_flag > 0
 
 	IF injured_ped_11_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_11	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_11 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_11
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_11 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_11_flag = 0
 		ENDIF
@@ -1679,8 +1690,9 @@ IF injured_ped_12_flag > 0
 
 	IF injured_ped_12_flag = 4
 		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_12	
-			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_12 hospital_door_x hospital_door_y
+			// SCFIX: Swap these two around so the objective isn't cancelled
 			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_12
+			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_12 hospital_door_x hospital_door_y
 			GOSUB chunk4_ambulance
 			injured_ped_12_flag = 0
 		ENDIF
@@ -1746,8 +1758,9 @@ ENDIF
 //
 //	IF injured_ped_13_flag = 4
 //		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_13	
-//			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_13 hospital_door_x hospital_door_y
+//			// SCFIX: Swap these two around so the objective isn't cancelled
 //			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_13
+//			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_13 hospital_door_x hospital_door_y
 //			GOSUB chunk4_ambulance
 //			injured_ped_13_flag = 0
 //		ENDIF
@@ -1813,8 +1826,9 @@ ENDIF
 //
 //	IF injured_ped_14_flag = 4
 //		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_14	
-//			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_14 hospital_door_x hospital_door_y
+//			// SCFIX: Swap these two around so the objective isn't cancelled
 //			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_14
+//			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_14 hospital_door_x hospital_door_y
 //			GOSUB chunk4_ambulance
 //			injured_ped_14_flag = 0
 //		ENDIF
@@ -1880,8 +1894,9 @@ ENDIF
 //
 //	IF injured_ped_15_flag = 4
 //		IF NOT IS_CHAR_IN_ANY_CAR injured_ped_15	
-//			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_15 hospital_door_x hospital_door_y
+//			// SCFIX: Swap these two around so the objective isn't cancelled
 //			MARK_CHAR_AS_NO_LONGER_NEEDED injured_ped_15
+//			SET_CHAR_OBJ_GOTO_COORD_ON_FOOT injured_ped_15 hospital_door_x hospital_door_y
 //			GOSUB chunk4_ambulance
 //			injured_ped_15_flag = 0
 //		ENDIF
