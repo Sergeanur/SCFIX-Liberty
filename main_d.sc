@@ -57,7 +57,7 @@ blob_flag = 0
 // *********************************TOTAL NUMBER OF MISSIONS********************************
 // *****************************************************************************************
 
-SET_TOTAL_NUMBER_OF_MISSIONS 73
+SET_TOTAL_NUMBER_OF_MISSIONS 0
 SET_PROGRESS_TOTAL 0
 
 // ********************************Player name for Cut-scene stuff**************************
