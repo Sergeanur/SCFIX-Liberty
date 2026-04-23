@@ -88,11 +88,18 @@ check_info_pickup:
 {
 
 LVAR_INT pickup message_num
+LVAR_INT end_when_industrial_passed // SCFIX: Added
 
 start_pickup_script:
 
 WHILE NOT HAS_PICKUP_BEEN_COLLECTED pickup
 	WAIT 500
+	// SCFIX: START
+	IF end_when_industrial_passed = 1
+	AND flag_industrial_passed = 1
+		TERMINATE_THIS_SCRIPT
+	ENDIF
+	// SCFIX: END
 ENDWHILE
 
 IF message_num = 1
@@ -148,11 +155,18 @@ check_info_pickup_2:
 {
 
 LVAR_INT pickup message_num
+LVAR_INT end_when_industrial_passed // SCFIX: Added
 
 start_pickup_script_2:
 
 WHILE NOT HAS_PICKUP_BEEN_COLLECTED pickup
 	WAIT 500
+	// SCFIX: START
+	IF end_when_industrial_passed = 1
+	AND flag_industrial_passed = 1
+		TERMINATE_THIS_SCRIPT
+	ENDIF
+	// SCFIX: END
 ENDWHILE
 
 GET_CONTROLLER_MODE controlmode
