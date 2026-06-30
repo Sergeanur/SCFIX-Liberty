@@ -22,6 +22,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Fixed destination blip position in a mission "I Scream, You Scream"
 - Fixed Claude being seen as a boat driver during the cutscene in a mission "Last Requests"
 - Fixed Securicar scratching the wall when driving into the garage in a mission "Escort Service"
+- Fixed multiple issues in "Decoy": SWAT chasing the player if they get wanted level on the way to the van, and Army chasing the player if they use Pay 'n Spray during the chase
 - Fixed starting marker for the mission "The Fuzz Ball" changing its position after beating "Chaperone" mission
 - Fixed Portland Harbor population disappearing after missions "Cutting the Grass" and "Bomb Da Base: Act II"
 - Restored cut subtitles in "Bomb Da Base: Act I" cutscene

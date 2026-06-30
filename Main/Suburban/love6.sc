@@ -171,7 +171,7 @@ MARK_MODEL_AS_NO_LONGER_NEEDED tshrorckgrdn
 MARK_MODEL_AS_NO_LONGER_NEEDED tshrorckgrdn_alfas
 MARK_MODEL_AS_NO_LONGER_NEEDED cut_obj1
 
-SET_SWAT_REQUIRED TRUE
+//SET_SWAT_REQUIRED TRUE // SCFIX: don't force SWAT if player gets wanted level on the way to the van
 REQUEST_MODEL CAR_ENFORCER
 REQUEST_MODEL PED_SWAT
 REQUEST_MODEL PED_COP
@@ -431,6 +431,7 @@ IF NOT IS_CAR_DEAD cop_3
 	MARK_CAR_AS_NO_LONGER_NEEDED cop_3
 ENDIF
 
+SET_SWAT_REQUIRED TRUE // SCFIX: don't force SWAT if player gets wanted level on the way to the van
 ALTER_WANTED_LEVEL player 6 
 
 DISPLAY_ONSCREEN_TIMER survival_time
@@ -462,6 +463,7 @@ WHILE survival_time > 0
 		GOTO mission_love6_failed
 	ENDIF
 
+	SET_SWAT_REQUIRED TRUE // SCFIX: prevent Pay 'n Spray from clearing this flag
 	ALTER_WANTED_LEVEL player 6
 
     GET_CAR_HEALTH decoy_van decoy_van_health
