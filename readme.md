@@ -48,6 +48,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Fixed On Mission flag (flag_player_on_mission) sets to prevent any abuse of this flag
 - Removed On Mission flag checks in some mission that were meant to bypass compiler errors
 - Re-enabled a Bobcat spawn in front of the Supa Save in Portland that was never switched on due to its script handle getting reused
+- Fixed the wanted level tutorial briefly pausing the game to load the models
 
 ## Save files compatibility
 
