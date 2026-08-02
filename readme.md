@@ -23,6 +23,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Fixed Claude being seen as a boat driver during the cutscene in a mission "Last Requests"
 - Fixed Securicar scratching the wall when driving into the garage in a mission "Escort Service"
 - Fixed starting marker for the mission "The Fuzz Ball" changing its position after beating "Chaperone" mission
+- Fixed Portland Harbor population disappearing after missions "Cutting the Grass" and "Bomb Da Base: Act II"
 - Restored cut subtitles in "Bomb Da Base: Act I" cutscene
 - Disabled Unique Stunt Jumps camera activating when driving Dodo
 - Mafia shotguns are now being replaced with Uzis when activating Paramedic, Vigilante, Firefighter or Taxi Driver side activities (similarly to missions "Big'n'Veiny" and "Espresso-2-Go!")
