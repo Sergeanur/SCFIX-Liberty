@@ -27,7 +27,7 @@ VAR_INT blip1_jm4 blip2_jm4 blip3_jm4 flag_car_blip_displayed_jm4 triads_ojectiv
 
 VAR_INT ojective_triad1_done_before ojective_triad2_done_before
 
-VAR_INT Toni_abuse1_done_before	tonis_car_created_before played_tune_before
+VAR_INT Toni_abuse1_done_before	/*tonis_car_created_before*/ played_tune_before // SCFIX - variable cut
 
 VAR_INT flag_displayed_wanted_message_jm4 flag_displayed_horn_message_jm4
 
@@ -48,9 +48,11 @@ flag_player_on_joey_mission = 1
 SCRIPT_NAME joey4
 WAIT 0
 
+/* SCFIX - cut, this is unsafe and may be operating on stale handles
 IF tonis_car_created_before = 1
 	GOSUB delete_tonis_car
 ENDIF
+*/
 
 flag_displayed_wanted_message_jm4 = 0
 flag_displayed_horn_message_jm4 = 0
@@ -86,7 +88,7 @@ OR NOT HAS_MODEL_LOADED CAR_STALLION
 ENDWHILE
 
 CREATE_CAR CAR_MAFIA 1189.72 -864.28 14.1 tonis_ride
-tonis_car_created_before = 1
+//tonis_car_created_before = 1 // SCFIX - cut
 SET_CAR_HEADING tonis_ride -142.0
 SET_RADIO_CHANNEL 1 -1
 
@@ -277,10 +279,17 @@ CLEAR_AREA 1198.5 -871.4 15.0 10.0 TRUE
 SET_FIXED_CAMERA_POSITION 1200.831 -869.373 15.001 0.0 0.0 0.0
 POINT_CAMERA_AT_POINT 1199.887 -869.701 15.025 JUMP_CUT
 
+/* SCFIX - moved the wait to fix a 1-frame window where the player could leave the car
 WAIT 0
 SWITCH_WIDESCREEN ON
+*/
 SET_POLICE_IGNORE_PLAYER Player ON
 SET_PLAYER_CONTROL Player OFF
+
+// SCFIX: START - moved the wait to fix a 1-frame window where the player could leave the car
+WAIT 0
+SWITCH_WIDESCREEN ON
+// SCFIX: END
 
 //WAIT 500
 
@@ -321,6 +330,8 @@ IF NOT IS_CHAR_DEAD toni
 	PLAYER_LOOK_AT_CHAR_ALWAYS player toni
 	//SET_ANIM_GROUP_FOR_CHAR toni ANIM_OLDFAT_PED
 ENDIF
+
+TIMERB = 0 // SCFIX - added a timeout to the cutscene
 
 WHILE NOT LOCATE_CAR_2D tonis_ride 1198.5 -871.4 2.0 2.0 FALSE
 	WAIT 0
@@ -372,6 +383,14 @@ WHILE NOT LOCATE_CAR_2D tonis_ride 1198.5 -871.4 2.0 2.0 FALSE
 		LOAD_MISSION_AUDIO J4T_3
 
 		tonis_audio_all_finished = 1
+		// SCFIX: START - added a timeout to the cutscene
+	ELSE
+		IF TIMERB > 10000
+			CLEAR_AREA 1198.5 -871.4 15.0 10.0 TRUE
+			SET_CAR_COORDINATES tonis_ride 1198.5 -871.4 14.1
+			SET_CAR_HEADING tonis_ride -127.0
+		ENDIF
+		// SCFIX: END
 	ENDIF
 	
 
@@ -505,6 +524,7 @@ flag_car_blip_displayed_jm4 = TRUE
 blob_flag = 1
 
 	IF IS_CAR_DEAD tonis_ride
+	OR IS_CHAR_DEAD toni // SCFIX: added check
 		PRINT_NOW ( JM4_8 ) 5000 1
 		GOTO mission_joey4_failed
 	ENDIF
@@ -516,6 +536,7 @@ blob_flag = 1
 		WAIT 0
 
 		IF IS_CAR_DEAD tonis_ride
+		OR IS_CHAR_DEAD toni // SCFIX: added check
 			PRINT_NOW ( JM4_8 ) 5000 1
 			GOTO mission_joey4_failed
 		ENDIF
@@ -551,6 +572,15 @@ blob_flag = 1
 			PLAY_MISSION_AUDIO
 			Toni_abuse1_done_before = 1
 		ENDIF	
+
+		// SCFIX: START - stop Toni's line if he's hurt
+		IF NOT IS_CHAR_HEALTH_GREATER toni 1
+		AND Toni_abuse1_done_before = 1
+			CLEAR_THIS_PRINT JM4_6
+			CLEAR_MISSION_AUDIO
+			Toni_abuse1_done_before = 2
+		ENDIF
+		// SCFIX: END
 
 		IF IS_PLAYER_STOPPED_IN_AREA_IN_CAR_3D player 839.2 -667.4 14.0 842.1 -673.9 17.0 FALSE
 
@@ -1306,6 +1336,7 @@ MISSION_HAS_FINISHED
 RETURN
 
 
+/* SCFIX - cut, this is unsafe and may be operating on stale handles
 {
 delete_tonis_car:
 
@@ -1313,3 +1344,4 @@ delete_tonis_car:
 
 RETURN
 }
+*/
