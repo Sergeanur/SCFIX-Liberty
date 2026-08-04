@@ -248,6 +248,7 @@ SET_CAR_ONLY_DAMAGED_BY_PLAYER lipsbrother2_car TRUE
    			GOTO mission_joey5_failed
    		ENDIF
 
+		/* SCFIX - rewritten with extra chase triggers
 		IF IS_CHAR_DEAD lipsbrother1
 		AND is_lipsbrother1_car_dead = 0
 			ADD_SCORE player 5000 
@@ -273,6 +274,49 @@ SET_CAR_ONLY_DAMAGED_BY_PLAYER lipsbrother2_car TRUE
 				GOTO kill_the_player
 			ENDIF
 		ENDIF
+		*/
+
+		// SCFIX: START - rewritten with extra chase triggers
+		IF IS_CHAR_DEAD lipsbrother1
+			IF is_lipsbrother1_car_dead = 0
+				ADD_SCORE player 5000 
+				is_lipsbrother1_car_dead = 1
+			ENDIF
+			GOTO kill_the_player_display_message
+		ELSE
+			IF NOT IS_CHAR_HEALTH_GREATER lipsbrother1 99
+				GOTO kill_the_player_display_message
+			ENDIF
+		ENDIF
+
+		IF IS_CHAR_DEAD lipsbrother2
+			IF is_lipsbrother2_car_dead = 0
+				ADD_SCORE player 5000 
+				is_lipsbrother2_car_dead = 1
+			ENDIF
+			GOTO kill_the_player_display_message
+		ELSE
+			IF NOT IS_CHAR_HEALTH_GREATER lipsbrother2 99
+				GOTO kill_the_player_display_message
+			ENDIF
+		ENDIF
+
+		IF NOT IS_CAR_DEAD lipsbrother1_car
+			IF NOT IS_CAR_HEALTH_GREATER lipsbrother1_car 999
+				GOTO kill_the_player_display_message
+			ENDIF
+		ELSE
+			GOTO kill_the_player_display_message
+		ENDIF
+
+		IF NOT IS_CAR_DEAD lipsbrother2_car
+			IF NOT IS_CAR_HEALTH_GREATER lipsbrother2_car 999	
+				GOTO kill_the_player_display_message
+			ENDIF
+		ELSE
+			GOTO kill_the_player_display_message
+		ENDIF
+		// SCFIX: END
 
 	ENDWHILE 
 
@@ -315,6 +359,13 @@ SET_POLICE_IGNORE_PLAYER Player OFF
 SET_PLAYER_CONTROL Player ON
 SWITCH_WIDESCREEN OFF
 RESTORE_CAMERA_JUMPCUT
+
+// SCFIX: START - added label for convenience, as we trigger the chase under more circumstances
+GOTO kill_the_player
+
+kill_the_player_display_message:
+PRINT_NOW ( JM5_2 ) 5000 1 // Gosh! it's the Forelis! 
+// SCFIX: END
 
 kill_the_player:
 		
