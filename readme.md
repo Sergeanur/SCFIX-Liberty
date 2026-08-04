@@ -6,6 +6,8 @@ All changes to the scripts were marked with `SCFIX` comment.
 
 Currently in beta status.
 
+"BW" in the list of changes refers to changes made to accommodate Fire_Head's [Breakable Windshields](https://github.com/Fire-Head/IIIBreakableWindshields) mod.
+
 ## Download SCM
 
 Get latest release here: https://github.com/Sergeanur/SCFIX-Liberty/releases
@@ -51,6 +53,10 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Re-enabled a Bobcat spawn in front of the Supa Save in Portland that was never switched on due to its script handle getting reused
 - Fixed the wanted level tutorial briefly pausing the game to load the models
 - Fixed "Arms Shortage" attempting to unload the incorrect models
+- Removed unsafe code in "Cipriani's Chauffeur" operating on a stale handle to Toni's car
+- Added extra death checks for Toni in the first half of "Cipriani's Chauffeur" and interrupted Toni's "no fancy crap" line if he's hurt (for BW)
+- Fixed a 1-frame window where the player could leave the car in the initial cutscene in "Cipriani's Chauffeur" and added a timeout to that cutscene to avoid softlocks
+- Added driver health checks in "Dead Skunk in the Trunk", so Forellis start chasing the player if one of the cars is destroyed instantly or if the driver is hurt (for BW)
 
 ## Save files compatibility
 
