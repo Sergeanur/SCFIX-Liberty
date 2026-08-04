@@ -635,6 +635,7 @@ ped_death_check_lm4:
 		IF IS_CHAR_DEAD rival_pimp_to_kill 
 			REMOVE_BLIP radar_blip_ped1_lm4
 			flag_pimp_dead_lm4 = 1
+			flag_ped1_not_in_car = 1 // SCFIX: delete the car blip if one ped leaves the car and the other is shot in-car
 		ENDIF
 
 	ENDIF
@@ -671,6 +672,7 @@ ped_death_check_lm4:
 		IF IS_CHAR_DEAD pimp_lm4
 			REMOVE_BLIP radar_blip_ped2_lm4
 		 	flag_pimp2_dead_lm4 = 1
+			flag_ped2_not_in_car = 1 // SCFIX: delete the car blip if one ped leaves the car and the other is shot in-car
 		ENDIF
 					   
 	ENDIF
