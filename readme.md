@@ -58,6 +58,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Added extra death checks for Toni in the first half of "Cipriani's Chauffeur" and interrupted Toni's "no fancy crap" line if he's hurt (for BW)
 - Fixed a 1-frame window where the player could leave the car in the initial cutscene in "Cipriani's Chauffeur" and added a timeout to that cutscene to avoid softlocks
 - Added driver health checks in "Dead Skunk in the Trunk", so Forellis start chasing the player if one of the cars is destroyed instantly or if the driver is hurt (for BW)
+- Added a sound when collecting checkpoints in "Turismo" to match the other checkpoint missions
 
 ## Save files compatibility
 
