@@ -31,6 +31,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Disabled Unique Stunt Jumps camera activating when driving Dodo
 - Mafia shotguns are now being replaced with Uzis when activating Paramedic, Vigilante, Firefighter or Taxi Driver side activities (similarly to missions "Big'n'Veiny" and "Espresso-2-Go!")
 - Fixed starting position for "Multistorey Mayhem" - now it triggers as soon as you enter the parked Stallion
+- Fixed mission triggers for "Gripped!" and the RC missions starting when the player parked the car on the trigger
 - Fixed blip for Diablo missions staying after beating "Last Requests"
 - Fixed taxi driver being able to become your passenger in a Taxi Driver side activity
 - Fixed multiple markers showing at the hospital in Paramedic

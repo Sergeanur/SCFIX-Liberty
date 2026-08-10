@@ -1901,6 +1901,7 @@ rc_loop:
 	AND flag_just_done_rc_mission = 0
 		IF IS_PLAYER_IN_MODEL player CAR_TOYZ
 			IF flag_player_on_mission = 0
+				flag_just_done_rc_mission = 1 // SCFIX
 				IF LOCATE_PLAYER_ANY_MEANS_3D player 1014.0 -120.0 5.0 5.0 5.0 5.0 false
 					flag_player_on_mission = 1 // SCFIX
 					PRINT_BIG ( RC1 ) 15000 2
@@ -2034,7 +2035,7 @@ ENDIF
 IF IS_PLAYER_PLAYING player
 
 	IF flag_player_on_mission = 0
-	AND IS_PLAYER_IN_AREA_2D player -230.0 255.0 -210.0 275.0 false
+	AND IS_PLAYER_IN_AREA_2D player -260.0 225.0 -180.0 305.0 false // SCFIX: was -230.0 255.0 -210.0 275.0
 
 		IF IS_PLAYER_IN_MODEL player CAR_PATRIOT
 		AND NOT IS_PLAYER_IN_AREA_2D player -230.0 255.0 -210.0 275.0 false
