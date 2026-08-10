@@ -563,6 +563,7 @@ flag_player_had_cut1_fm3 = 1
 GOTO mission_cleanup_frankie3
 
 player_has_money:
+REGISTER_MISSION_GIVEN // SCFIX: moved from 'IF flag_taken_money_off_fm3 = 0'
 
 CLEAR_AREA 1272.6 -95.6 -100.0 2.0 TRUE
 
@@ -747,7 +748,7 @@ MARK_MODEL_AS_NO_LONGER_NEEDED mak_bomb01
 
 IF flag_taken_money_off_fm3 = 0
 	ADD_SCORE player -100000
-	REGISTER_MISSION_GIVEN
+	//REGISTER_MISSION_GIVEN // SCFIX: moved to player_has_money
 	flag_taken_money_off_fm3 = 1
 ENDIF
 

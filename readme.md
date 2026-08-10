@@ -28,6 +28,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Fixed starting marker for the mission "The Fuzz Ball" changing its position after beating "Chaperone" mission
 - Fixed Portland Harbor population disappearing after missions "Cutting the Grass" and "Bomb Da Base: Act II"
 - Restored cut subtitles in "Bomb Da Base: Act I" cutscene
+- Made "Bomb Da Base: Act II" count mission attempts correctly when re-attempting the mission
 - Disabled Unique Stunt Jumps camera activating when driving Dodo
 - Mafia shotguns are now being replaced with Uzis when activating Paramedic, Vigilante, Firefighter or Taxi Driver side activities (similarly to missions "Big'n'Veiny" and "Espresso-2-Go!")
 - Fixed starting position for "Multistorey Mayhem" - now it triggers as soon as you enter the parked Stallion
