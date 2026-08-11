@@ -248,7 +248,7 @@ SET_CAR_ONLY_DAMAGED_BY_PLAYER lipsbrother2_car TRUE
    			GOTO mission_joey5_failed
    		ENDIF
 
-		/* SCFIX - rewritten with extra chase triggers
+		/* SCFIX: rewritten with extra chase triggers
 		IF IS_CHAR_DEAD lipsbrother1
 		AND is_lipsbrother1_car_dead = 0
 			ADD_SCORE player 5000 
