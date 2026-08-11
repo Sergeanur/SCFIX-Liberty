@@ -61,6 +61,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Fixed a 1-frame window where the player could leave the car in the initial cutscene in "Cipriani's Chauffeur" and added a timeout to that cutscene to avoid softlocks
 - Added driver health checks in "Dead Skunk in the Trunk", so Forellis start chasing the player if one of the cars is destroyed instantly or if the driver is hurt (for BW)
 - Added a sound when collecting checkpoints in "Turismo" to match the other checkpoint missions
+- Made "Paparazzi Purge" pass when the reporter dies instead of when the boat explodes (for BW)
 
 ## Save files compatibility
 

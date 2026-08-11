@@ -230,7 +230,7 @@ TIMERB = 0
 			ENDIF
 		ENDIF
 	
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -260,7 +260,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 744.8 -350.1 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -293,7 +293,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 728.9 -133.7 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -325,7 +325,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 635.5 24.7 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -357,7 +357,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 746.6 252.9 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -389,7 +389,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 872.1 335.9 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -421,7 +421,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1064.5 180.8 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -453,7 +453,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1262.0 166.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -485,7 +485,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1566.0 52.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -517,7 +517,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1595.0 -154.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -549,7 +549,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1555.0 -299.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -582,7 +582,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1617.0 -600.0 0.0 5.0 5.0 5.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -615,7 +615,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1617.0 -762.0 0.0 5.0 5.0 5.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -647,7 +647,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1637.0 -950.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -679,7 +679,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1535.0 -1173.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -711,7 +711,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 1268.0 -1273.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -744,7 +744,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 938.1 -1226.4 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -778,7 +778,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 618.0 -1083.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -811,7 +811,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 560.0 -899.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
@@ -844,7 +844,7 @@ ENDIF
 	WHILE NOT LOCATE_CAR_3D spy_boat 548.0 -795.0 0.0 6.0 6.0 6.0 FALSE
 		WAIT 0
 
-		IF IS_CAR_DEAD spy_boat
+		IF IS_CHAR_DEAD spy_bloke // SCFIX: was IS_CAR_DEAD spy_boat
 		 	GOTO mission_asuka3_passed
 		ENDIF
 
