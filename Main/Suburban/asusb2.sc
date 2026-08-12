@@ -160,7 +160,7 @@ flag_particle_as2 = 0
 
 flag_guard1_created = 0
 
-kappa_time = 470000
+kappa_time = 480000
 flag_timer_started = 0
 
 // ****************************************LOCATION COORDS**************************************
