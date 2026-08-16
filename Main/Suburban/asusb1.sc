@@ -701,10 +701,20 @@ WAIT 0
 				ENDIF
 			ENDIF
 			
+			/* SCFIX: check for the vehicle occupants instead of the car
 			IF IS_CAR_DEAD cartel_car_a_as1
 			AND flag_a_attack = 0
-				PRINT_NOW (AS1_H) 3000 1 //you failed to lead the Deathsquad into the Yakuza trap!!
-				GOTO mission_as1_failed
+			*/
+			// SCFIX: START
+			IF flag_a_attack = 0
+				IF IS_CHAR_DEAD cartel1_as1
+				OR IS_CHAR_DEAD cartel2_as1
+				OR IS_CHAR_DEAD cartel3_as1
+				OR IS_CHAR_DEAD cartel4_as1
+			// SCFIX: END
+					PRINT_NOW (AS1_H) 3000 1 //you failed to lead the Deathsquad into the Yakuza trap!!
+					GOTO mission_as1_failed
+				ENDIF // SCFIX
 			ENDIF
 
 			
@@ -820,10 +830,20 @@ WAIT 0
 				ENDIF
 			ENDIF
 
+			/* SCFIX: check for the vehicle occupants instead of the car
 			IF IS_CAR_DEAD cartel_car_b_as1
 			AND flag_b_attack = 0
-				PRINT_NOW (AS1_H) 3000 1 //you failed to lead the Deathsquad into the Yakuza trap!!
-				GOTO mission_as1_failed
+			*/
+			// SCFIX: START
+			IF flag_b_attack = 0
+				IF IS_CHAR_DEAD cartel5_as1
+				OR IS_CHAR_DEAD cartel6_as1
+				OR IS_CHAR_DEAD cartel7_as1
+				OR IS_CHAR_DEAD cartel8_as1
+			// SCFIX: END
+					PRINT_NOW (AS1_H) 3000 1 //you failed to lead the Deathsquad into the Yakuza trap!!
+					GOTO mission_as1_failed
+				ENDIF // SCFIX
 			ENDIF
 			
 			IF NOT IS_CAR_DEAD cartel_car_b_as1
@@ -1056,10 +1076,20 @@ WAIT 0
 				ENDIF
 			ENDIF
 
+			/* SCFIX: check for the vehicle occupants instead of the car
 			IF IS_CAR_DEAD cartel_car_d_as1
 			AND flag_d_attack = 0
-				PRINT_NOW (AS1_H) 3000 1 //you failed to lead the Deathsquad into the Yakuza trap!!
-				GOTO mission_as1_failed
+			*/
+			// SCFIX: START
+			IF flag_d_attack = 0
+				IF IS_CHAR_DEAD cartel13_as1
+				OR IS_CHAR_DEAD cartel14_as1
+				OR IS_CHAR_DEAD cartel15_as1
+				OR IS_CHAR_DEAD cartel16_as1
+			// SCFIX: END
+					PRINT_NOW (AS1_H) 3000 1 //you failed to lead the Deathsquad into the Yakuza trap!!
+					GOTO mission_as1_failed
+				ENDIF // SCFIX
 			ENDIF
 			
 			IF NOT IS_CAR_DEAD cartel_car_d_as1
