@@ -67,6 +67,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Added a check for the Shoreside Vale Pay 'n Spray in "Uzi Rider", as per the original TODO comment in the source
 - Fixed "Uzi Rider" softlocking if the car gets destroyed instantly
 - Made "Uzi Rider" fail if the player attacks one of the Yardies in the car (for BW)
+- Fixed the final subtitle lingering on-screen when skipping the phone cutscenes in "Bling-Bling Scramble", "Uzi Rider", "Gangcar Round-Up", and "Kingdom Come"
 
 ## Save files compatibility
 
