@@ -275,6 +275,10 @@ SET_CAR_ONLY_DAMAGED_BY_PLAYER gang_car_yd2 True
 CREATE_CHAR_INSIDE_CAR gang_car_yd2 PEDTYPE_CIVMALE PED_GANG_YARDIE_A chaperone_1
 CREATE_CHAR_AS_PASSENGER gang_car_yd2 PEDTYPE_CIVMALE PED_GANG_YARDIE_B 0 chaperone_2
 
+// SCFIX: START - make them only damageable by the player, since we check their health as a failure condition
+SET_CHAR_ONLY_DAMAGED_BY_PLAYER chaperone_1 TRUE
+SET_CHAR_ONLY_DAMAGED_BY_PLAYER chaperone_2 TRUE
+// SCFIX: END
 
 CAR_GOTO_COORDINATES gang_car_yd2 113.0 -272.0 16.0
 SET_CAR_CRUISE_SPEED gang_car_yd2 25.0
@@ -428,9 +432,14 @@ WHILE NOT HAS_MISSION_AUDIO_FINISHED
 		GOTO poodle
 	ENDIF
 ENDWHILE
-CLEAR_PRINTS
+//CLEAR_PRINTS // SCFIX: moved below
 
 poodle:
+// SCFIX: START - clear the subtitles and audio when skipping the cutscene
+CLEAR_PRINTS
+CLEAR_MISSION_AUDIO
+// SCFIX: END
+
 STOP_CHAR_LOOKING player_yd2
 //SET_CHAR_OBJ_NO_OBJ player_yd2
 //SET_PLAYER_CONTROL player on
@@ -549,8 +558,8 @@ SET_CAR_DENSITY_MULTIPLIER 1.0
 
 //---------------------SET PED DENSITIES----------------------------------------------------
 
-SETUP_ZONE_PED_INFO	TOWERS DAY   (15) 0 0 700 (0 0 0 0) 20 
-SETUP_ZONE_PED_INFO TOWERS NIGHT (10) 0 0 800 (0 0 0 0) 10
+SETUP_ZONE_PED_INFO	TOWERS DAY   (15) 0 0 700 (0 0 0 0) 0 // SCFIX: corrected parameters
+SETUP_ZONE_PED_INFO TOWERS NIGHT (10) 0 0 800 (0 0 0 0) 0 // SCFIX: corrected parameters
 
 
 //-----------------------GETTING TO THE HIT-------------------------------------------------
@@ -572,6 +581,7 @@ IF NOT IS_CAR_DEAD gang_car_yd2
 			IF NOT IS_CAR_HEALTH_GREATER gang_car_yd2 250 //NB!! Add Sub spray shop
 				IF NOT LOCATE_CAR_3D gang_car_yd2 379.0 -493.7 26.2 15.0 15.0 15.0 false//comm spray shop
 				AND NOT LOCATE_CAR_3D gang_car_yd2 925.4 -358.7 10.8 15.0 15.0 15.0 false//ind spray shop
+				AND NOT LOCATE_CAR_3D gang_car_yd2 -1142.1 34.0 59.0 15.0 15.0 15.0 false // SCFIX: sub spray shop
 					flag_upsidedown = 1
 					GOTO mission_yd2_failed
 				ENDIF
@@ -637,6 +647,7 @@ WHILE body_count_yd2 < 10
 			IF NOT IS_CAR_HEALTH_GREATER gang_car_yd2 250 //NB!! Add Sub spray shop
 				IF NOT LOCATE_CAR_3D gang_car_yd2 379.0 -493.7 26.2 15.0 15.0 15.0 false//comm spray shop
 				AND NOT LOCATE_CAR_3D gang_car_yd2 925.4 -358.7 10.8 15.0 15.0 15.0 false//ind spray shop
+				AND NOT LOCATE_CAR_3D gang_car_yd2 -1142.1 34.0 59.0 15.0 15.0 15.0 false // SCFIX: sub spray shop
 					flag_upsidedown = 1
 					GOTO mission_yd2_failed
 				ENDIF
@@ -700,6 +711,7 @@ IF NOT IS_CAR_DEAD gang_car_yd2
 				IF NOT IS_CAR_HEALTH_GREATER gang_car_yd2 250 //NB!! Add Sub spray shop
 					IF NOT LOCATE_CAR_3D gang_car_yd2 379.0 -493.7 26.2 15.0 15.0 15.0 false//comm spray shop
 					AND NOT LOCATE_CAR_3D gang_car_yd2 925.4 -358.7 10.8 15.0 15.0 15.0 false//ind spray shop
+					AND NOT LOCATE_CAR_3D gang_car_yd2 -1142.1 34.0 59.0 15.0 15.0 15.0 false // SCFIX: sub spray shop
 						flag_upsidedown = 1
 						GOTO mission_yd2_failed
 					ENDIF
@@ -800,12 +812,23 @@ mission_yd2_failed:
 
 IF NOT IS_CHAR_DEAD chaperone_1
 AND NOT IS_CAR_DEAD	gang_car_yd2
-	SET_CHAR_OBJ_LEAVE_CAR chaperone_1 gang_car_yd2
+	IF IS_CHAR_HEALTH_GREATER chaperone_1 1  // SCFIX: don't make dying Yadies leave the car
+		SET_CHAR_OBJ_LEAVE_CAR chaperone_1 gang_car_yd2
+	ENDIF // SCFIX: don't make dying Yadies leave the car
 ENDIF
 IF NOT IS_CHAR_DEAD chaperone_2
 AND NOT IS_CAR_DEAD	gang_car_yd2
-	SET_CHAR_OBJ_LEAVE_CAR chaperone_2 gang_car_yd2
+	IF IS_CHAR_HEALTH_GREATER chaperone_2 1  // SCFIX: don't make dying Yadies leave the car
+		SET_CHAR_OBJ_LEAVE_CAR chaperone_2 gang_car_yd2
+	ENDIF // SCFIX: don't make dying Yadies leave the car
 ENDIF
+
+// SCFIX: START - if both Yardies are dead (or dying), don't play the mission failure audio
+IF NOT IS_CHAR_HEALTH_GREATER chaperone_1 1
+AND NOT IS_CHAR_HEALTH_GREATER chaperone_2 1
+	flag_upsidedown = 0
+ENDIF
+// SCFIX: END
 
 IF flag_upsidedown = 1
 	LOAD_MISSION_AUDIO YD2_D
@@ -827,65 +850,73 @@ ENDIF
 
 IF NOT IS_CHAR_DEAD chaperone_1
 AND NOT IS_CAR_DEAD gang_car_yd2
-	WHILE IS_CHAR_IN_CAR chaperone_1 gang_car_yd2
-		WAIT 0
-		IF IS_CHAR_DEAD chaperone_1
-			GOTO boddle
-		ENDIF
-		IF IS_CAR_DEAD gang_car_yd2
-			GOTO boddle
-		ENDIF
-	ENDWHILE
+	IF IS_CHAR_HEALTH_GREATER chaperone_1 1  // SCFIX: don't make dying Yadies leave the car
+		WHILE IS_CHAR_IN_CAR chaperone_1 gang_car_yd2
+			WAIT 0
+			IF IS_CHAR_DEAD chaperone_1
+				GOTO boddle
+			ENDIF
+			IF IS_CAR_DEAD gang_car_yd2
+				GOTO boddle
+			ENDIF
+		ENDWHILE
+	ENDIF // SCFIX: don't make dying Yadies leave the car
 ENDIF
 
 boddle:
 IF NOT IS_CHAR_DEAD chaperone_2
 AND NOT IS_CAR_DEAD gang_car_yd2
-	WHILE IS_CHAR_IN_CAR chaperone_2 gang_car_yd2
-		WAIT 0
-		IF IS_CHAR_DEAD chaperone_2
-			GOTO mission_yd2_failed_assert
-		ENDIF
-		IF IS_CAR_DEAD gang_car_yd2
-			GOTO mission_yd2_failed_assert
-		ENDIF
-	ENDWHILE
+	IF IS_CHAR_HEALTH_GREATER chaperone_2 1  // SCFIX: don't make dying Yadies leave the car
+		WHILE IS_CHAR_IN_CAR chaperone_2 gang_car_yd2
+			WAIT 0
+			IF IS_CHAR_DEAD chaperone_2
+				GOTO mission_yd2_failed_assert
+			ENDIF
+			IF IS_CAR_DEAD gang_car_yd2
+				GOTO mission_yd2_failed_assert
+			ENDIF
+		ENDWHILE
+	ENDIF // SCFIX: don't make dying Yadies leave the car
 ENDIF
 
 IF NOT IS_CHAR_DEAD chaperone_1
-	GIVE_WEAPON_TO_CHAR chaperone_1 WEAPONTYPE_SHOTGUN 10
-	WHILE NOT IS_CURRENT_CHAR_WEAPON chaperone_1 WEAPONTYPE_SHOTGUN
-		WAIT 0
-		IF IS_CHAR_DEAD	chaperone_1
-			GOTO oink
+	IF IS_CHAR_HEALTH_GREATER chaperone_1 1  // SCFIX: don't make dying Yadies leave the car
+		GIVE_WEAPON_TO_CHAR chaperone_1 WEAPONTYPE_SHOTGUN 10
+		WHILE NOT IS_CURRENT_CHAR_WEAPON chaperone_1 WEAPONTYPE_SHOTGUN
+			WAIT 0
+			IF IS_CHAR_DEAD	chaperone_1
+				GOTO oink
+			ENDIF
+		ENDWHILE
+		IF NOT IS_CHAR_DEAD chaperone_1
+			TURN_CHAR_TO_FACE_PLAYER chaperone_1 player
+			IF IS_PLAYER_IN_ZONE player TOWERS
+				SET_CHAR_THREAT_SEARCH chaperone_1 THREAT_GANG_DIABLO
+			ENDIF
+			SET_CHAR_THREAT_SEARCH chaperone_1 THREAT_PLAYER1
 		ENDIF
-	ENDWHILE
-	IF NOT IS_CHAR_DEAD chaperone_1
-		TURN_CHAR_TO_FACE_PLAYER chaperone_1 player
-		IF IS_PLAYER_IN_ZONE player TOWERS
-			SET_CHAR_THREAT_SEARCH chaperone_1 THREAT_GANG_DIABLO
-		ENDIF
-		SET_CHAR_THREAT_SEARCH chaperone_1 THREAT_PLAYER1
-	ENDIF
+	ENDIF // SCFIX: don't make dying Yadies leave the car
 ENDIF
 
 oink:
 
 IF NOT IS_CHAR_DEAD chaperone_2
-	GIVE_WEAPON_TO_CHAR chaperone_2 WEAPONTYPE_UZI 30
-	WHILE NOT IS_CURRENT_CHAR_WEAPON chaperone_2 WEAPONTYPE_UZI
-		WAIT 0
-		IF IS_CHAR_DEAD	chaperone_2
-			GOTO poink
+	IF IS_CHAR_HEALTH_GREATER chaperone_2 1  // SCFIX: don't make dying Yadies leave the car
+		GIVE_WEAPON_TO_CHAR chaperone_2 WEAPONTYPE_UZI 30
+		WHILE NOT IS_CURRENT_CHAR_WEAPON chaperone_2 WEAPONTYPE_UZI
+			WAIT 0
+			IF IS_CHAR_DEAD	chaperone_2
+				GOTO poink
+			ENDIF
+		ENDWHILE
+		IF NOT IS_CHAR_DEAD chaperone_2
+			TURN_CHAR_TO_FACE_PLAYER chaperone_2 player
+			IF IS_PLAYER_IN_ZONE player TOWERS
+				SET_CHAR_THREAT_SEARCH chaperone_2 THREAT_GANG_DIABLO
+			ENDIF
+			SET_CHAR_THREAT_SEARCH chaperone_2 THREAT_PLAYER1
 		ENDIF
-	ENDWHILE
-	IF NOT IS_CHAR_DEAD chaperone_2
-		TURN_CHAR_TO_FACE_PLAYER chaperone_2 player
-		IF IS_PLAYER_IN_ZONE player TOWERS
-			SET_CHAR_THREAT_SEARCH chaperone_2 THREAT_GANG_DIABLO
-		ENDIF
-		SET_CHAR_THREAT_SEARCH chaperone_2 THREAT_PLAYER1
-	ENDIF
+	ENDIF // SCFIX: don't make dying Yadies leave the car
 ENDIF
 
 poink:
@@ -991,8 +1022,8 @@ MARK_MODEL_AS_NO_LONGER_NEEDED CAR_PERENNIAL
 
 //------------RESTORE PED DENSITIES---------------------------------------
 
-SETUP_ZONE_PED_INFO	TOWERS DAY   (15) 0 0 300 (0 0 0 0) 20 
-SETUP_ZONE_PED_INFO TOWERS NIGHT (10) 0 0 500 (0 0 0 0) 10
+SETUP_ZONE_PED_INFO	TOWERS DAY   (15) 0 0 300 (0 0 0 0) 0 // SCFIX: corrected parameters
+SETUP_ZONE_PED_INFO TOWERS NIGHT (10) 0 0 400 (0 0 0 0) 0 // SCFIX: corrected parameters
 
 MISSION_HAS_FINISHED
 RETURN
@@ -1009,6 +1040,7 @@ player_out_of_car:
 			IF NOT IS_CAR_HEALTH_GREATER gang_car_yd2 250 //NB!! Add Sub spray shop
 				IF NOT LOCATE_CAR_3D gang_car_yd2 379.0 -493.7 26.2 15.0 15.0 15.0 false//comm spray shop
 				AND NOT LOCATE_CAR_3D gang_car_yd2 925.4 -358.7 10.8 15.0 15.0 15.0 false//ind spray shop
+				AND NOT LOCATE_CAR_3D gang_car_yd2 -1142.1 34.0 59.0 15.0 15.0 15.0 false // SCFIX: sub spray shop
 					flag_upsidedown = 1
 					GOTO mission_yd2_failed
 				ENDIF
@@ -1032,7 +1064,20 @@ player_out_of_car:
 					RETURN
 				ENDIF
 			ENDIF
+		// SCFIX: START - fix a softlock if the car gets destroyed instantly
+		ELSE
+			flag_upsidedown = 1
+			GOTO mission_yd2_failed
+		// SCFIX: END
 		ENDIF
+
+		// SCFIX: START - fail the mission if either Yardie is attacked by the player
+		IF NOT IS_CHAR_HEALTH_GREATER chaperone_1 1
+		OR NOT IS_CHAR_HEALTH_GREATER chaperone_2 1
+			flag_upsidedown = 2
+			GOTO mission_yd2_failed
+		ENDIF
+		// SCFIX: END
 	ENDWHILE
 	
 	LOCK_CAR_DOORS gang_car_yd2 CARLOCK_LOCKED

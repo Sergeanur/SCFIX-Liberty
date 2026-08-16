@@ -62,6 +62,11 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Added driver health checks in "Dead Skunk in the Trunk", so Forellis start chasing the player if one of the cars is destroyed instantly or if the driver is hurt (for BW)
 - Added a sound when collecting checkpoints in "Turismo" to match the other checkpoint missions
 - Made "Paparazzi Purge" pass when the reporter dies instead of when the boat explodes (for BW)
+- Skipping the initial cutscene with thw two Yardies in "Uzi Rider" now clears the subtitles and audio
+- Fixed "Uzi Rider" modifying the population density in Hepburn Heights permanently
+- Added a check for the Shoreside Vale Pay 'n Spray in "Uzi Rider", as per the original TODO comment in the source
+- Fixed "Uzi Rider" softlocking if the car gets destroyed instantly
+- Made "Uzi Rider" fail if the player attacks one of the Yardies in the car (for BW)
 
 ## Save files compatibility
 
