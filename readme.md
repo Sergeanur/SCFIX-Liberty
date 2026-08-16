@@ -44,6 +44,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - LCPD wall model swap in "Kanbu Bust-out" made seamless
 - Panlantic fence model swap in "Grand Theft Aero" made seamless
 - Fixed Quadruple Insane Stunt
+- Checkpoint missions and repeatable phone missions no longer increment the mission attempts stat when replaying them after passing them
 - Reimplement "Bling-Bling Scramble" random selection of a checkpoint pattern to fix the third pattern being unreachable
 - Reimplement "Plaster Blaster" random selection of an ambulance path to fix the third path being unreachable
 - Implemented fixes for potential SSU in the intro cutscene script

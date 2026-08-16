@@ -68,7 +68,9 @@ VAR_INT hr1_time_dif hr2_time_dif hr3_time_dif
 // ****************************************Mission Start************************************
 
 mission_start_yd1:
-REGISTER_MISSION_GIVEN
+IF flag_yardie_mission4_passed = 0 // SCFIX: don't increment mission attempts if the player already passed this mission (yard4 check is deliberate here)
+	REGISTER_MISSION_GIVEN
+ENDIF // SCFIX
 SCRIPT_NAME yard1 
 flag_player_on_mission = 1
 flag_player_on_yardie_mission = 1
