@@ -67,7 +67,9 @@ flag_player_on_mission = 1
 
 flag_player_on_hood_mission = 1
 
-REGISTER_MISSION_GIVEN
+IF flag_hood_mission3_passed = 0 // SCFIX: don't increment mission attempts if the player already passed this mission
+	REGISTER_MISSION_GIVEN
+ENDIF // SCFIX
 
 WAIT 0
 

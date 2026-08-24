@@ -53,7 +53,9 @@ VAR_FLOAT x_12 y_12 z_12
 // ****************************************Mission Start************************************
 
 mission_start_mayhem:
-REGISTER_MISSION_GIVEN
+If flag_mayhem_mission1_passed = 0 // SCFIX: don't increment mission attempts if the player already passed this mission
+	REGISTER_MISSION_GIVEN
+ENDIF // SCFIX
 SCRIPT_NAME mayhem 
 flag_player_on_mission = 1
 //flag_player_on_carpark_mission = 1

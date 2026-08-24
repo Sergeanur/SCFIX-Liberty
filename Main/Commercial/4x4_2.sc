@@ -52,7 +52,9 @@ VAR_FLOAT x_12 y_12 z_12
 // ****************************************Mission Start************************************
 
 mission_start_4x4two:
-REGISTER_MISSION_GIVEN
+IF flag_4x4_mission2_passed = 0 // SCFIX: don't increment mission attempts if the player already passed this mission
+	REGISTER_MISSION_GIVEN
+ENDIF // SCFIX
 SCRIPT_NAME t4x4_2 
 flag_player_on_mission = 1
 //flag_player_on_4x4_mission = 1

@@ -68,7 +68,9 @@ mission_start_d1:
 flag_player_on_mission = 1
 flag_player_on_diablo_mission = 1
 
-REGISTER_MISSION_GIVEN
+IF flag_diablo1_passed_before = 0 // SCFIX: don't increment mission attempts if the player already passed this mission
+	REGISTER_MISSION_GIVEN
+ENDIF // SCFIX
 
 WAIT 0
 
@@ -522,6 +524,7 @@ ENDIF
 IF LOCATE_PLAYER_IN_CAR_3D player player_x_d1 player_y_d1 player_z_d1 6.0 6.0 6.0 0
 	
 	++ player_cpcounter
+	ADD_ONE_OFF_SOUND player_x_d1 player_y_d1 player_z_d1 SOUND_PART_MISSION_COMPLETE // SCFIX: added
 	
 	REMOVE_BLIP blip_chase_d1
 	REMOVE_BLIP second_blip
