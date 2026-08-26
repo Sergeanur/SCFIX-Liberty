@@ -56,6 +56,28 @@ com_fires_exting = 0
 sub_fires_exting = 0
 total_saved_peds = 0
 
+// SCFIX: START
+bonus_gun1 = -1
+bonus_gun2 = -1
+bonus_gun3 = -1
+bonus_gun4 = -1
+bonus_gun5 = -1
+bonus_gun6 = -1
+bonus_gun7 = -1
+bonus_gun8 = -1
+bonus_gun9 = -1
+bonus_gunflame = -1
+bonus_gun10 = -1
+bonus_bribe1 = -1
+bonus_bribe2 = -1
+bonus_bribe3 = -1
+bonus_bribe4 = -1
+bonus_bribe5 = -1
+bonus_bribe6 = -1
+bonus_health = -1
+bonus_adrenaline = -1
+// SCFIX: END
+
 play_pager_message1 = 0
 play_pager_message2 = 0
 play_pager_message3	= 0
@@ -1482,25 +1504,63 @@ RETURN
 remove_bonus_pickups:
 {
 
-	REMOVE_PICKUP bonus_gun1		
-	REMOVE_PICKUP bonus_gun2		
-	REMOVE_PICKUP bonus_gun3		
-	REMOVE_PICKUP bonus_gun4		
-	REMOVE_PICKUP bonus_gun5		
-	REMOVE_PICKUP bonus_gun6		
-	REMOVE_PICKUP bonus_gun7		
-	REMOVE_PICKUP bonus_gun8		
-	REMOVE_PICKUP bonus_gun9
-	REMOVE_PICKUP bonus_gunflame	
-	REMOVE_PICKUP bonus_gun10
-	REMOVE_PICKUP bonus_bribe1
-	REMOVE_PICKUP bonus_bribe2
-	REMOVE_PICKUP bonus_bribe3
-	REMOVE_PICKUP bonus_bribe4
-	REMOVE_PICKUP bonus_bribe5
-	REMOVE_PICKUP bonus_bribe6
-	REMOVE_PICKUP bonus_health
-	REMOVE_PICKUP bonus_adrenaline
+	IF NOT bonus_gun1 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun1
+	ENDIF // SCFIX
+	IF NOT bonus_gun2 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun2
+	ENDIF // SCFIX
+	IF NOT bonus_gun3 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun3
+	ENDIF // SCFIX
+	IF NOT bonus_gun4 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun4
+	ENDIF // SCFIX
+	IF NOT bonus_gun5 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun5
+	ENDIF // SCFIX
+	IF NOT bonus_gun6 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun6
+	ENDIF // SCFIX
+	IF NOT bonus_gun7 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun7
+	ENDIF // SCFIX
+	IF NOT bonus_gun8 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun8
+	ENDIF // SCFIX
+	IF NOT bonus_gun9 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun9
+	ENDIF // SCFIX
+	IF NOT bonus_gunflame = -1 // SCFIX
+		REMOVE_PICKUP bonus_gunflame
+	ENDIF // SCFIX
+	IF NOT bonus_gun10 = -1 // SCFIX
+		REMOVE_PICKUP bonus_gun10
+	ENDIF // SCFIX
+	IF NOT bonus_bribe1 = -1 // SCFIX
+		REMOVE_PICKUP bonus_bribe1
+	ENDIF // SCFIX
+	IF NOT bonus_bribe2 = -1 // SCFIX
+		REMOVE_PICKUP bonus_bribe2
+	ENDIF // SCFIX
+	IF NOT bonus_bribe3 = -1 // SCFIX
+		REMOVE_PICKUP bonus_bribe3
+	ENDIF // SCFIX
+	IF NOT bonus_bribe4 = -1 // SCFIX
+		REMOVE_PICKUP bonus_bribe4
+	ENDIF // SCFIX
+	IF NOT bonus_bribe5 = -1 // SCFIX
+		REMOVE_PICKUP bonus_bribe5
+	ENDIF // SCFIX
+	IF NOT bonus_bribe6 = -1 // SCFIX
+		REMOVE_PICKUP bonus_bribe6
+	ENDIF // SCFIX
+	IF NOT bonus_health = -1 // SCFIX
+		REMOVE_PICKUP bonus_health
+	ENDIF // SCFIX
+	IF NOT bonus_adrenaline = -1 // SCFIX
+		REMOVE_PICKUP bonus_adrenaline
+	ENDIF // SCFIX
 }
 
 RETURN
