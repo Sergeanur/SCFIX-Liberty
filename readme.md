@@ -69,6 +69,7 @@ Replace main.scm inside data directory, but read save files compatibility note b
 - Made "Uzi Rider" fail if the player attacks one of the Yardies in the car (for BW)
 - Fixed the final subtitle lingering on-screen when skipping the phone cutscenes in "Bling-Bling Scramble", "Uzi Rider", "Gangcar Round-Up", and "Kingdom Come"
 - Made "Bait" fail if any of the vehicle occupants dies, instead of checking for their cars (for BW)
+- Added checks before deletion of pickups in scripts: import
 
 ## Save files compatibility
 
